@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mystats</title>
+    <style>
+        table,th,td {
+            border: 1px solid rgb(219, 17, 54);
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 <body>
     <p>I would love to play cricket and explore places on a vacation. Listening songs would be a stress free to me.</p>
@@ -16,6 +22,7 @@
     <hr>
     <h2>Sports</h2>
     <p>The below table represents sports recommendations and the average hours spent.</p>
+
     <table>
         <tr>
             <th>Sport Name</th>
@@ -24,26 +31,52 @@
         </tr>
         <tr>
             <td>Badminton</td>
-            <td>Reduces stress and challenging</td>
-            <td>5-6 hours</td>
+            <td>Reduces stress</td>
+            <td>5-6</td>
         </tr>
         <tr>
             <td>Volleyball</td>
-            <td>Great for full-body exercise and relaxation</td>
-            <td>5-6 hours</td>
+            <td>Full-body exercise</td>
+            <td>5-6</td>
         </tr>
         <tr>
             <td>Cricket</td>
-            <td>Challenging and team-effort game</td>
-            <td>10-12 hours</td>
+            <td>Team-effort game</td>
+            <td>10-12</td>
         </tr>
         <tr>
             <td>Tennis</td>
-            <td>Enjoy the outdoors while getting fit.</td>
-            <td>4-5 hours</td>
+            <td>Enjoys outdoors.</td>
+            <td>4-5</td>
         </tr>
-    
     </table>
+
+    <hr>
+    <h3>Code Display</h3>
+    <blockquote>
+        <a href="https://stackoverflow.com/questions/9972533/how-to-retrieve-20-or-more-twitter-status-with-php">How to get latest get-latest-twitter-status using PHP stack overflow</a>
+    </blockquote>
+
+    <pre>
+        <?php
+
+function getTwitterStatus($userid){
+$url = "https://api.twitter.com/1/statuses/user_timeline/$userid.xml?count=1&include_rts=1callback=?";
+
+$xml = simplexml_load_file($url) or die("could not connect");
+
+       foreach($xml->status as $status){
+       $text = $status->text;
+       }
+       echo $text;
+ }
+
+// USAGE
+getTwitterStatus("chriscoyier");
+
+?>
+    </pre>
+    <a href="https://css-tricks.com/snippets/php/get-latest-twitter-status/">Quick Link to Source code</a>
 
 </body>
 </html>
